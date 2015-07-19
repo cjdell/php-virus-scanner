@@ -66,7 +66,7 @@ func getFileList(dir string) []*PhpFile {
 			log.Printf("Error resolving file: %s (%s)", path, err.Error())
 		}
 
-		if filepath.Ext(f.Name()) == ".php" {
+		if !f.IsDir() && filepath.Ext(f.Name()) == ".php" {
 			relPath, _ := filepath.Rel(dir, path)
 
 			fileList = append(fileList, &PhpFile{
@@ -80,10 +80,6 @@ func getFileList(dir string) []*PhpFile {
 	if err != nil {
 		log.Fatalf("Error walking directory tree: ", err.Error())
 	}
-
-	//	for _, file := range fileList {
-	//		fmt.Println(file.Path)
-	//	}
 
 	return fileList
 }
