@@ -28,7 +28,9 @@ func Scan(flags *Flags) {
 	defs := []Definition{
 		&definitions.EvalBase64{},
 		&definitions.EvalEscaped{},
-		&definitions.ScriptInject{}}
+		&definitions.ScriptInject{},
+		&definitions.Assert{},
+		&definitions.FileWriter{}}
 
 	for _, v := range defs {
 		v.Init()
