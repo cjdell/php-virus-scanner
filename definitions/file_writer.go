@@ -11,7 +11,7 @@ type FileWriter struct {
 
 func (def *FileWriter) Init() {
 	def.matcher1, _ = regexp.Compile(`\$_(REQUEST|POST)\[\'`)
-	def.matcher2, _ = regexp.Compile(`fwrite`)
+	def.matcher2, _ = regexp.Compile(`fopen`)
 }
 
 func (FileWriter) Name() string {
