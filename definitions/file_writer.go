@@ -5,11 +5,13 @@ import (
 )
 
 type FileWriter struct {
-	matcher *regexp.Regexp
+	matcher1 *regexp.Regexp
+	matcher2 *regexp.Regexp
 }
 
 func (def *FileWriter) Init() {
-	def.matcher, _ = regexp.Compile(`\\xEF\\xBB\\xBF`)
+	def.matcher1, _ = regexp.Compile(`\$_(REQUEST|POST)\[\'`)
+	def.matcher2, _ = regexp.Compile(`fwrite`)
 }
 
 func (FileWriter) Name() string {
@@ -17,5 +19,5 @@ func (FileWriter) Name() string {
 }
 
 func (def *FileWriter) Check(source string) bool {
-	return def.matcher.MatchString(source)
+	return def.matcher1.MatchString(source) && def.matcher2.MatchString(source)
 }
