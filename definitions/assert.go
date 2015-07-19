@@ -9,7 +9,7 @@ type Assert struct {
 }
 
 func (def *Assert) Init() {
-	def.matcher, _ = regexp.Compile(`[\"\']a[\"\'\.]*s[\"\'\.]*s[\"\'\.]*e[\"\'\.]*r[\"\'\.]*t[\"\']`)
+	def.matcher, _ = regexp.Compile(`\=[\"\']a[\"\'\.]*s[\"\'\.]*s[\"\'\.]*e[\"\'\.]*r[\"\'\.]*t[\"\']`)
 }
 
 func (Assert) Name() string {
