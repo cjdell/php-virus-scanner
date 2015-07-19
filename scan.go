@@ -27,7 +27,8 @@ type Definition interface {
 func Scan(flags *Flags) {
 	defs := []Definition{
 		&definitions.EvalBase64{},
-		&definitions.EvalEscaped{}}
+		&definitions.EvalEscaped{},
+		&definitions.ScriptInject{}}
 
 	for _, v := range defs {
 		v.Init()
